@@ -199,12 +199,15 @@
     ctx.font = "bold 19px Manrope, sans-serif";
     ctx.fillText(laneNames[state.lane], 36, 68);
     if (state.mode === "running") {
+      const nearest = state.obstacles.reduce((closest, obstacle) =>
+        !closest || obstacle.progress > closest.progress ? obstacle : closest, null);
+      const upcomingLane = nearest ? nearest.lane : (state.obstacleCount * 2 + 1) % LANES;
       ctx.textAlign = "right";
       ctx.fillStyle = "rgba(8, 21, 17, .56)";
       ctx.fillRect(W - 177, 20, 155, 44);
       ctx.fillStyle = "#f3e8bb";
       ctx.font = "12px 'DM Mono', monospace";
-      ctx.fillText(`GATES ${state.obstacles.length}`, W - 36, 47);
+      ctx.fillText(`NEXT ${["LEFT", "CENTER", "RIGHT"][upcomingLane]}`, W - 36, 47);
       ctx.textAlign = "left";
     }
   }

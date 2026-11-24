@@ -63,3 +63,11 @@ footer { margin: 13px 2px 0; color: #94a799; font: 10px "DM Mono", monospace; te
   .control-button { min-width: 0; }
   .hint { line-height: 1.5; }
 }
+
+@media (min-width: 700px) and (max-height: 800px) {
+  .game-shell { width: min(100% - 28px, 900px); padding-top: 12px; }
+  .topbar { margin-bottom: 10px; }
+  .game-panel { border-radius: 14px; }
+  .hud { gap: 9px 16px; margin-top: 10px; padding: 11px 14px; }
+  footer { margin-top: 8px; }
+}

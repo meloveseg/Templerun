@@ -14,7 +14,7 @@ Open `index.html` in a current web browser. No install, account, or extra files 
 4. A gate ends the run if it reaches the runner in the same lane while the runner is grounded. A gate in another lane is safe. Survive to increase the distance score by 10 meters per second.
 5. After a collision, the score stops. Choose **Run again** to reset the score, lane, energy, and approaching gates.
 
-The **Next gate** label names the closest approaching gate so you can choose whether to change lanes or spend energy jumping.
+The **Next gate** label names the closest approaching gate; the same lane cue appears inside the track during play so it stays visible on shorter screens.
 
 **Example choice:** if a gate is approaching the center and the left lane is open, move left and keep all your energy. If both side lanes feel unsafe, stay put and spend 40 energy to jump over the gate. The lane and energy mechanics work together: one is free but changes position, while the other keeps position but has a limited resource.
 
@@ -38,4 +38,4 @@ The **Next gate** label names the closest approaching gate so you can choose whe
 
 I kept the art geometric so the first build could focus on the rule instead of copied characters. The important interaction is between lane choice and energy: switching lanes costs nothing, while jumping is the fallback when a lane change is not safe.
 
-**Browser try:** On my first run, I moved left to avoid a center gate and got caught by the following left-lane gate. The run ended as designed, but it showed me the next hazard needed a clearer cue, so I added the **Next gate** label. In the fresh-copy check, I found that focusing the game after Start scrolled the title and cue out of view. The game now keeps keyboard focus without scrolling the page. I chose not to add copied Temple Run art or extra moves because the first version should make the energy decision easy to test.
+**Browser try:** On my first run, I moved left to avoid a center gate and got caught by the following left-lane gate. The run ended as designed, but it showed me the next hazard needed a clearer cue, so I added the **Next gate** label. In the fresh-copy check, I found that focusing the game after Start scrolled the title and cue out of view. The game now keeps keyboard focus without scrolling and shows the next lane inside the track; a compact layout also reduces page scrolling on shorter desktop screens. I chose not to add copied Temple Run art or extra moves because the first version should make the energy decision easy to test.
