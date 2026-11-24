@@ -32,7 +32,7 @@ The **Next gate** label names the closest approaching gate so you can choose whe
 | Start and lane change | Start a run, press **←** once, then **→** once. | The lane label changes left, then returns to center; the run continues. |
 | Energy boundary | Start a run and press **Space** twice, waiting until the first jump ends. Then press **Space** again. | The first jump takes energy from 100 to 60. The second spends 40 while some energy has recharged; the next jump is rejected if the meter is below 40, with a clear message. |
 | Lane boundary | Start a run, press **←** twice. | First move selects left; the second stays left and explains the boundary. |
-| Collision and restart | Start a run and do not move or jump. | The center gate ends the run; the score freezes and **Run again** appears. Restart returns the runner to center with 100 energy and score 0. |
+| Collision and restart | Start a run and do not move or jump. | The center gate ends the run; the score freezes and **Run again** appears. Restart puts the runner in center with 100 energy and resets distance to 0 before counting resumes. |
 
 ## Design and testing note
 
