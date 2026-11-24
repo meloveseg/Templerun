@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10231f">
+  <title>Temple Run: Energy Trail</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">A one-screen runner remix</p>
+        <h1>Energy Trail</h1>
+      </div>
+      <p class="score-card">Distance <strong id="score">0</strong></p>
+    </header>
+
+    <section class="game-panel" aria-label="Energy Trail game">
+      <canvas id="game" width="960" height="540" tabindex="0" aria-label="Three-lane runner. Use left and right arrows to change lanes and Space to jump using energy."></canvas>
+      <div class="game-message" id="gameMessage" aria-live="polite">
+        <p class="message-kicker">The trail is yours</p>
+        <h2 id="messageTitle">Ready to run?</h2>
+        <p id="messageText">Pick a lane. Save energy for a jump when moving over is unsafe.</p>
+        <button id="startButton" class="primary-button" type="button">Start run</button>
+      </div>
+    </section>
+
+    <section class="hud" aria-label="Runner controls and energy">
+      <div class="energy-block">
+        <div class="energy-label"><span>Jump energy</span><strong id="energyText">100 / 100</strong></div>
+        <div class="energy-track" role="progressbar" aria-label="Jump energy" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" id="energyBar"><span id="energyFill"></span></div>
+      </div>
+      <div class="control-buttons" aria-label="Touch controls">
+        <button class="control-button" id="leftButton" type="button" aria-label="Move one lane left">← <span>Lane</span></button>
+        <button class="control-button jump-button" id="jumpButton" type="button">Jump <span>40 energy</span></button>
+        <button class="control-button" id="rightButton" type="button" aria-label="Move one lane right">→ <span>Lane</span></button>
+      </div>
+      <p class="hint">← / → change lanes · Space jumps · Energy returns while you run · Avoid the stone gates</p>
+      <p class="status" id="status" aria-live="polite">Ready. Press Start run to begin.</p>
+    </section>
+
+    <footer>Original geometric artwork · Inspired by the endless-runner genre</footer>
+  </main>
+</body>
+</html>
