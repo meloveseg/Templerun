@@ -232,7 +232,7 @@
     message.hidden = true;
     setStatus("Run started. Change lanes freely; jumps spend energy.");
     state.lastFrame = performance.now();
-    canvas.focus();
+    canvas.focus({ preventScroll: true });
   }
 
   function endRun() {
@@ -318,9 +318,9 @@
   }
 
   startButton.addEventListener("click", startRun);
-  leftButton.addEventListener("click", () => { moveLane(-1); canvas.focus(); });
-  rightButton.addEventListener("click", () => { moveLane(1); canvas.focus(); });
-  jumpButton.addEventListener("click", () => { jump(); canvas.focus(); });
+  leftButton.addEventListener("click", () => { moveLane(-1); canvas.focus({ preventScroll: true }); });
+  rightButton.addEventListener("click", () => { moveLane(1); canvas.focus({ preventScroll: true }); });
+  jumpButton.addEventListener("click", () => { jump(); canvas.focus({ preventScroll: true }); });
   document.addEventListener("keydown", event => {
     if (event.code === "ArrowLeft" || event.code === "ArrowRight" || event.code === "Space") event.preventDefault();
     if (event.repeat) return;
