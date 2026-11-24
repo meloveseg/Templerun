@@ -8,6 +8,7 @@
   const messageText = document.querySelector("#messageText");
   const startButton = document.querySelector("#startButton");
   const scoreLabel = document.querySelector("#score");
+  const nextGateLabel = document.querySelector("#nextGate");
   const energyText = document.querySelector("#energyText");
   const energyFill = document.querySelector("#energyFill");
   const energyBar = document.querySelector("#energyBar");
@@ -45,6 +46,13 @@
   }
   function obstacleY(progress) { return lerp(142, 420, progress); }
   function setStatus(text) { status.textContent = text; }
+
+  function updateNextGate() {
+    const nearest = state.obstacles.reduce((closest, obstacle) =>
+      !closest || obstacle.progress > closest.progress ? obstacle : closest, null);
+    const label = nearest ? `${["Left", "Center", "Right"][nearest.lane]} lane` : "None in sight";
+    if (nextGateLabel.textContent !== label) nextGateLabel.textContent = label;
+  }
 
   function setEnergy(value) {
     state.energy = Math.max(0, Math.min(100, value));
@@ -218,6 +226,7 @@
     state.jumpUntil = 0;
     state.obstacles = [];
     state.lastAnnouncedLane = null;
+    updateNextGate();
     setEnergy(100);
     scoreLabel.textContent = "0";
     message.hidden = true;
@@ -267,6 +276,7 @@
     const lane = (state.obstacleCount * 2 + 1) % LANES;
     state.obstacleCount += 1;
     state.obstacles.push({ lane, progress: 0 });
+    updateNextGate();
     if (state.obstacles.length === 1) {
       state.lastAnnouncedLane = lane;
       setStatus(`A gate is approaching in the ${["left", "center", "right"][lane]} lane.`);
@@ -296,6 +306,7 @@
       }
     }
     state.obstacles = state.obstacles.filter(obstacle => obstacle.progress < 1.08);
+    updateNextGate();
   }
 
   function frame(now) {
