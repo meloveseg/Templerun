@@ -8,7 +8,7 @@ Open `index.html` in a current web browser. No install, account, or extra files 
 
 ## Rules
 
-1. Select **Start run**. The runner begins in the center lane; gates approach automatically in a repeating center, left, right pattern.
+1. Select **Start run**. The runner begins in the center lane; gates approach once per second in a repeating center, left, right pattern.
 2. Press **←** or **→** to move one lane. You can change lanes at any time while the run is active. At the left or right edge, an extra move outward does nothing.
 3. Press **Space** (or **Jump**) to vault a gate. A jump costs 40 of 100 energy, lasts about 0.6 seconds, and can only start while grounded. Energy returns at 18 points per second while grounded, up to 100. If there is less than 40 energy, the jump is blocked with a message.
 4. A gate ends the run if it reaches the runner in the same lane while the runner is grounded. A gate in another lane is safe. Survive to increase the distance score by 10 meters per second.
@@ -38,4 +38,4 @@ The **Next gate** label names the closest approaching gate; the same lane cue ap
 
 I kept the art geometric so the first build could focus on the rule instead of copied characters. The important interaction is between lane choice and energy: switching lanes costs nothing, while jumping is the fallback when a lane change is not safe.
 
-**Browser try:** On my first run, I moved left to avoid a center gate and got caught by the following left-lane gate. The run ended as designed, but it showed me the next hazard needed a clearer cue, so I added the **Next gate** label. In the fresh-copy check, I found that focusing the game after Start scrolled the title and cue out of view. The game now keeps keyboard focus without scrolling and shows the next lane inside the track; a compact layout also reduces page scrolling on shorter desktop screens. I chose not to add copied Temple Run art or extra moves because the first version should make the energy decision easy to test.
+**Browser try and fixes:** On my first run, I moved left to avoid a center gate and got caught by the following left-lane gate. I added the **Next gate** cue. A playtest also found it was too easy to stay in a side lane, so I shortened the gate interval from 1.35 seconds to 1 second. In a fresh-copy check, I found that focusing the game after Start scrolled the title and cue out of view; the game now keeps keyboard focus without scrolling and shows the next lane inside the track. A compact layout also reduces page scrolling on shorter desktop screens. I chose not to add copied Temple Run art or extra moves because the first version should make the energy decision easy to test.

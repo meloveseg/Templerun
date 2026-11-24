@@ -20,6 +20,7 @@
   const W = canvas.width;
   const H = canvas.height;
   const LANES = 3;
+  const GATE_INTERVAL = 1;
   const JUMP_COST = 40;
   const ENERGY_RECHARGE = 18;
   const JUMP_MS = 620;
@@ -295,8 +296,8 @@
     scoreLabel.textContent = String(Math.floor(state.score));
 
     if (performance.now() >= state.jumpUntil) setEnergy(state.energy + ENERGY_RECHARGE * dt);
-    if (state.spawnTimer >= 1.35) {
-      state.spawnTimer -= 1.35;
+    if (state.spawnTimer >= GATE_INTERVAL) {
+      state.spawnTimer -= GATE_INTERVAL;
       spawnObstacle();
     }
 
